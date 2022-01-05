@@ -1,0 +1,37 @@
+.footer {
+  bottom: 0;
+  // height: calc(100vh - 120px);
+  background-color: #222;
+  display: flex;
+
+  .item {
+    flex: 1;
+    display: flex;
+    // position: relative;
+  }
+
+  .item:last-child {
+    flex: 2;
+    padding: 40px;
+    justify-content: space-between;
+  }
+}
+
+.card {
+  flex: 1;
+  padding: 0 20px;
+  /* position: absolute; */
+}
+
+.title {
+  font-size: 18px;
+  color: #b7903c;
+}
+
+.text {
+  color: lightgray;
+}
+
+.motto {
+  color: rgb(211, 211, 211);
+}

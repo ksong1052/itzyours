@@ -1,0 +1,98 @@
+.register {
+  margin-top: 120px;
+  padding-top: 80px;
+  width: 100%;
+  height: 100%;
+  // background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+
+.register .inner {
+  width: 70%;
+  left: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-shadow: 0px 5px 33px -21px #000000;
+  -moz-box-shadow: 0px 5px 33px -21px #000000;
+  box-shadow: 0px 5px 33px -21px #000000;
+  border-radius: 20px;
+  padding: 80px 0 20px 0;
+  margin-bottom: 80px;
+  /* background-image: url("../../images/v_bg2.jpg"); */
+}
+
+.registerTitle {
+  color: rgb(97, 94, 94);
+  margin-top: 200px;
+}
+
+.register .left,
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register .center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.register .center .line {
+  width: 10px;
+  height: 70%;
+  background-color: black;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: -1;
+}
+
+.register .left .icon {
+  width: 240px;
+  height: 240px;
+  margin-right: 10px;
+}
+
+.register .right .input {
+  width: 230px;
+  margin-bottom: 20px;
+}
+
+/* 
+.submit {
+  width: 244px;
+  background-color: rgba(128, 0, 128, 0.671);
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+} */
+
+.register .right .btn {
+  width: 230px;
+}
+
+.register .registerTitle {
+  position: absolute;
+  top: 20px;
+  font-size: 40px;
+  color: rgb(136, 105, 105);
+}
+
+.register .registerForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
