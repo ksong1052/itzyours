@@ -2,16 +2,16 @@ import React from 'react'
 import './header.scss';
 import { Link } from "react-router-dom";
 import Logo from '../../images/logo.png';
-// import Shopping from '../../images/shopping.svg';
+import Shopping from '../../images/shopping.svg';
 import Cart from '../../images/cart.png';
 
 const Header = () => {
   return (
     <div className="header">
       <div className="item">
-        {/* <div className="callIcon">
+        <div className="callIcon">
           <img src={Shopping} alt="" width="92" height="77" />
-        </div> */}
+        </div>
       </div>
       <div className="item">
         <ul className="list">

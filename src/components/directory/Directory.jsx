@@ -26,14 +26,14 @@ const Directory = () => {
       linkUrl: 'shop/shoes'
     },
     {
-      title: 'womens',
+      title: 'women',
       imageUrl: 'https://cdn.pixabay.com/photo/2021/12/14/07/20/group-6869806_960_720.jpg',
       size: 'large',
       id: 4,
       linkUrl: 'shop/womens'
     },
     {
-      title: 'mens',
+      title: 'men',
       imageUrl: 'https://cdn.pixabay.com/photo/2017/04/07/16/47/interview-2211354_960_720.jpg',
       size: 'large',
       id: 5,
@@ -45,7 +45,7 @@ const Directory = () => {
     <div className="directoryMenu">
       {
         sections.map((section) => (
-          <MenuItem key={section.id} title={section.title} imageUrl={section.imageUrl} />
+          <MenuItem key={section.id} title={section.title} imageUrl={section.imageUrl} size={section.size} />
         ))
       }      
     </div>

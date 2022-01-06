@@ -1,20 +1,26 @@
 import './menuItem.scss';
 import { Link } from "react-router-dom";
 
-const MenuItem = ({ title, imageUrl }) => {
+const MenuItem = ({ title, imageUrl, size }) => {
   return (
-    <div 
-      style={{
-        backgroundImage: `url(${imageUrl})`
-      }} 
-      className="menuItem"
-    >
-      <Link to="/products/1">      
-        <div className="content">                  
-          <h1 className="title">{title}</h1>
-          <span className="subtitle">Shop Now</span>                                    
+    // <div className={`${size} menuItem`}
+    //   style={{
+    //     backgroundImage:`url(${imageUrl})`
+    //   }}
+    // >
+      <div className={`${size} menuItem`}>      
+        <div 
+          className="bgImg"
+          style={{
+            backgroundImage:`url(${imageUrl})`
+          }}
+        />  
+        <div className="content">  
+          <h1 className="title">{title.toUpperCase()}</h1>
+            <Link to="/products/1" style={{textDecoration:"none"}}> 
+              <span className="subtitle">Shop Now</span>                                    
+            </Link>
         </div>
-      </Link>
     </div>
   )
 }
