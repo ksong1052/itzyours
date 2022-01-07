@@ -27,9 +27,9 @@ const Header = () => {
           </li>
           <img src={Logo} alt="" width="200px" height="89px" />
           <li className="listItem">
-            <Link to="/" 
+            <Link to="/shop" 
               style={{textDecoration:"none", color:"white", fontSize:'25px'}}
-            >Events</Link>
+            >Shop</Link>
           </li>
           <li className="listItem">
             <Link to="/" 

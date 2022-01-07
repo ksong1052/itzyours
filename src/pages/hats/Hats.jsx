@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './hats.scss';
 
 const Hats = () => {
   return (
-    <div>
+    <div className='hats'>
       Hats
     </div>
   )

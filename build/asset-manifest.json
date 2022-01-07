@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.7713b39c.css",
-    "main.js": "/static/js/main.64635873.js",
+    "main.css": "/static/css/main.b4d5336d.css",
+    "main.js": "/static/js/main.b6335aa7.js",
     "static/media/v_bg2.jpg": "/static/media/v_bg2.d16609d3f1ac8857696c.jpg",
     "static/media/bg.png": "/static/media/bg.90251a2b7842b5b47b25.png",
+    "static/media/pizza.png": "/static/media/pizza.18a430cd75996179e0cc.png",
+    "static/media/size.png": "/static/media/size.d01d982ab07517ddefba.png",
     "static/media/logo.png": "/static/media/logo.20c30cb88d924ad844da.png",
     "static/media/shopping.svg": "/static/media/shopping.b87a964ee39f1d1845fac7ec41c73f98.svg",
     "static/media/cart.png": "/static/media/cart.ecbc52417590ea6d4056.png",
     "static/media/register.svg": "/static/media/register.a2536eb5068051f1d2eab8b9a7a7341e.svg",
     "index.html": "/index.html",
-    "main.7713b39c.css.map": "/static/css/main.7713b39c.css.map",
-    "main.64635873.js.map": "/static/js/main.64635873.js.map"
+    "main.b4d5336d.css.map": "/static/css/main.b4d5336d.css.map",
+    "main.b6335aa7.js.map": "/static/js/main.b6335aa7.js.map"
   },
   "entrypoints": [
-    "static/css/main.7713b39c.css",
-    "static/js/main.64635873.js"
+    "static/css/main.b4d5336d.css",
+    "static/js/main.b6335aa7.js"
   ]
 }

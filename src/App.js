@@ -11,6 +11,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import NotFound from './pages/notFound/NotFound';
 import Hats from './pages/hats/Hats';
+import ShopPage from './pages/shopPage/ShopPage';
 import ProductDetail from './pages/productDetail/ProductDetail';
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
           <Route exact path="/" element={<Home />} />          
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
-          <Route exact path="/hats" element={<Hats />} />
+          <Route exact path="/shop" element={<ShopPage />} />
+          <Route exact path="/shop/hats" element={<Hats />} />          
           <Route exact path="/products" element={<ProductDetail />} />
           <Route path="*" element={<NotFound/>}/>
         </Routes>
