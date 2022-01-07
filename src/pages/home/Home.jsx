@@ -1,3 +1,4 @@
+import React from 'react';
 import './home.scss';
 import Directory from '../../components/directory/Directory';
 

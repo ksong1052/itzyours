@@ -1,7 +1,6 @@
 import React from 'react';
 import MenuItem from '../menuItem/MenuItem';
 import './directory.scss';
-// import Hat from '../../images/hat.jpg'
 
 const Directory = () => {
   // const [section, setsection] = useState(initialState)
@@ -45,7 +44,13 @@ const Directory = () => {
     <div className="directoryMenu">
       {
         sections.map((section) => (
-          <MenuItem key={section.id} title={section.title} imageUrl={section.imageUrl} size={section.size} />
+          <MenuItem 
+            key={section.id} 
+            linkUrl={section.linkUrl} 
+            title={section.title} 
+            imageUrl={section.imageUrl} 
+            size={section.size}             
+          />
         ))
       }      
     </div>
