@@ -12,8 +12,9 @@ const CollectionItem = ({ item }) => {
         }}
       />
       <div className="collectionFooter">
-        <span className="name">{ item.name }</span>
-        <span className="price">{ item.price }</span>
+        <span className="name">{item.name}</span>
+        ${item.price}
+        {/* <span className="price">{item.price}</span> */}
       </div>      
     </div>
   )
