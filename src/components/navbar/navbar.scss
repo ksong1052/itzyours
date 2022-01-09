@@ -1,9 +1,16 @@
 .navbar {
   height: 80px;
   width: 100%;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
-  margin: 25px 0;
+  background-color: white;
+  // box-shadow: 10px 10px 5px grey;
+  border-bottom: 1px solid grey;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9;
 
   .logoContainer {
     height: 100%;
@@ -19,12 +26,14 @@
   .options {
     width: 50%;
     height: 100%;
+    margin-right: 80px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
     .option {
       padding: 10px 15px;
+      cursor: pointer;
     }
   }
 }
