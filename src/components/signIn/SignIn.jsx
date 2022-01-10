@@ -8,9 +8,8 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function onSubmitHandler(e) {
+  function onSubmitHandler(e) {    
     e.preventDefault();
-
     console.log("email & password", email, password);
   } 
 

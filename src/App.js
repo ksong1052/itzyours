@@ -18,12 +18,31 @@ import HatDetail from './pages/hatDetail/HatDetail';
 import ShopPage from './pages/shopPage/ShopPage';
 // import ProductDetail from './pages/productDetail/ProductDetail';
 import { auth } from './firebase/firebase.utils';
+// import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({})
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      setCurrentUser(user);
+    auth.onAuthStateChanged(userAuth => {
+      // if(userAuth) {
+      //   setCurrentUser(userAuth);
+      //   console.log("userAuth: ",userAuth.multiFactor.user);
+      // }     
+
+      // if(userAuth) {
+      //   const userRef = await createUserProfileDocument(userAuth);
+
+      //   userRef.onSnapshot(snapShot => {
+      //     setCurrentUser(
+      //       {            
+      //         id: snapShot.id,
+      //         ...snapShot.data()            
+      //       });
+      //   });        
+      // }
+
+      //const cUser = userAuth.multiFactor.user;
+      setCurrentUser(userAuth);
       console.log("currentUser: ",currentUser);
     });
   }, [currentUser])
