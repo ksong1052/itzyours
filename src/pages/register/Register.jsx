@@ -1,9 +1,57 @@
+import { useState } from 'react';
 import './register.scss';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 import RegisterImage from "../../images/register.svg";
 import Background from '../../images/v_bg2.jpg';
 import TextField from '@mui/material/TextField';
+// import FormInput from '../../components/formInput/FormInput';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
 
 const Register = () => {
+  const [displayName, setDisplayName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const onSubmitHandler = async (e) => {
+  // function onSubmitHandler(e) {    
+    e.preventDefault();    
+
+    if(password !== confirmPassword) {
+      alert('Password does not match');
+      return;
+    }
+    
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(email, password);
+      await createUserProfileDocument(user, { displayName});
+
+      setDisplayName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');      
+    } catch(error) {
+      console.log(error);
+    }
+  }
+
+  function DisplayNameHandler(e) {
+    setDisplayName(e.target.value);
+  }
+  
+  function EmailHandler(e) {
+    setEmail(e.target.value);
+  }
+
+  function PasswordHandler(e) {
+    setPassword(e.target.value);
+  }
+
+  function ConfirmPasswordHandler(e) {
+    setConfirmPassword(e.target.value);
+  }
+
   return (
     <div className="register">
       <div className="inner" style={{backgroundImage: `url(${Background})`}}>
@@ -16,12 +64,58 @@ const Register = () => {
           <div className="line" />            
         </div>
         <div className="right">
-          <div className="registerForm">
-            <TextField id="standard-basic" label="Username" variant="standard" className="input" />
+          <form className="registerForm" onSubmit={onSubmitHandler}>
+            {/* <TextField id="standard-basic" label="Username" variant="standard" className="input" />
             <TextField id="standard-basic" label="Email" variant="standard" className="input" />
-            <TextField id="standard-basic" label="Password" type="password" variant="standard" className="input" />
-            <button className="btn">Login</button>
-          </div>
+            <TextField id="standard-basic" label="Password" type="password" variant="standard" className="input" /> */}
+            <TextField  
+              id="displayName"
+              name="displayName"
+              label="Username"
+              type="text"                
+              variant="standard"
+              onChange={DisplayNameHandler}
+              value={displayName}
+              className="input"
+              required
+            />  
+            <TextField 
+              id="email"
+              label="Email"
+              type="email"                
+              variant="standard"
+              onChange={EmailHandler}
+              value={email}
+              className="input"
+              required
+            />       
+            <TextField 
+              id="password"
+              name='password'
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+              onChange={PasswordHandler}
+              value={password}
+              className="input"
+              required
+            />                
+            <TextField 
+              id="confirmPassword"
+              name='confirmPassword'
+              label="Confirm Password"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+              onChange={ConfirmPasswordHandler}
+              value={confirmPassword}
+              className="input"
+              required
+            />
+            {/* <button className="btn" type="submit">Register</button> */}
+            <Button type="submit" variant="contained" endIcon={<SendIcon />} className='submitBtn'>Send</Button>
+          </form>
         </div>
 
       </div>

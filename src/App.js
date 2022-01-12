@@ -2,13 +2,13 @@ import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Navbar from './components/navbar/Navbar';
-// import Header from './components/header/Header';
+// import Navbar from './components/navbar/Navbar';
+import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
-// import Login from "./pages/login/Login";
-// import Register from "./pages/register/Register";
-import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+// import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
 import NotFound from './pages/notFound/NotFound';
 import Hats from './pages/hats/Hats';
 import HatDetail from './pages/hatDetail/HatDetail';
@@ -82,21 +82,23 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+
+    // Store에 저장된 이름("setCUser")으로 props를 받아야 사용
+    const { setCUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          setCurrentUser({
+          setCUser({
             id: snapShot.id,
             ...snapShot.data()
           });
         });
       }
 
-      setCurrentUser(userAuth);
+      setCUser(userAuth);
     });
   }
 
@@ -108,16 +110,16 @@ class App extends React.Component {
     return (
       <Router>
         {/* Header Component */}
-        {/* <Header /> */}
+        <Header />
 
         {/* <Navbar currentUser={currentUser} /> */}
-        <Navbar />
+        {/* <Navbar /> */}
 
         <Routes>
           <Route exact path="/" element={<Home />} />          
-          {/* <Route exact path="/login" element={<Login />} />
-          <Route exact path="/register" element={<Register />} /> */}
-          <Route exact path="/signin" element={<SignInSignUp />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/register" element={<Register />} />
+          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}
           <Route exact path="/shop" element={<ShopPage />} />
           <Route exact path="/shop/hats" element={<Hats />} /> 
           <Route exact path="/shop/hats/:id" element={<HatDetail />} />          
@@ -133,10 +135,10 @@ class App extends React.Component {
 }
 
 // ⭐ dispatch: component에 있는 state를 store에 전달
-// 여기에서 지정된 setCurrentUser는 같은 component 내에서 props로 사용할 수 있다.
 // action에 정의되어 있는 setCurrentUser를 사용해야 한다.
+// 현 component에서 지정된 이름 "setCUser"를 store부터 props("setCUser")로 받아 와 사용 가능 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCUser: user => dispatch(setCurrentUser(user))
 });
 
 export default connect(

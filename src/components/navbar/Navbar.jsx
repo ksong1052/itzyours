@@ -33,7 +33,7 @@ const Navbar = ({currentUser}) => {
 }
 
 // ⭐ state: rootReducer를 가리킴
-// store에 있는 state를 component에 전달
+// store에 있는 state를 현 위치의 component에 "currentUser"으로 전달
 const mapStateToProps = (state) => ({
   currentUser: state.user.currentUser
 });

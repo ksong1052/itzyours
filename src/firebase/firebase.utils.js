@@ -12,7 +12,7 @@ const config = {
   measurementId: "G-0R4QR4YNZ5"
 }
 
-// Register User
+// 계정 생성 시에 firebase가 가지고 있는 User의 기본 정보로 부터 필요한 부분만 추출
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if(!userAuth) return;
 
@@ -38,11 +38,15 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 }
 
+// firebase의 계정 정보를 가져와 기본 설정을 해 준다.
 firebase.initializeApp(config);
 
+// Login시에 firebase를 통한 인증에서 사용
 export const auth = firebase.auth();
+// DB로 firestore를 이용
 export const firestore = firebase.firestore();
 
+// Google 계정을 통해 Login을 할 때 사용되는 UI를 설정
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
