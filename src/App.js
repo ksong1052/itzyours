@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // import Navbar from './components/navbar/Navbar';
 import Header from './components/header/Header';
@@ -81,10 +81,11 @@ import { setCurrentUser } from './redux/user/user.action';
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
-  componentDidMount() {
-
+  componentDidMount() {  
     // Store에 저장된 이름("setCUser")으로 props를 받아야 사용
     const { setCUser } = this.props;
+
+    // console.log("this.props1", this.props);
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -97,12 +98,15 @@ class App extends React.Component {
           });
         });
       }
-
+      
       setCUser(userAuth);
+      // console.log("this.props2", this.props);
+      // console.log("this.props.setCUser", setCUser);
+      // console.log("this.props.currentUser", this.props.currentUser);
     });
   }
 
-  componentWillUnmount() {
+  componentWillUnmount() {    
     this.unsubscribeFromAuth();
   }
 
@@ -116,10 +120,12 @@ class App extends React.Component {
         {/* <Navbar /> */}
 
         <Routes>
-          <Route exact path="/" element={<Home />} />          
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
-          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}
+          <Route exact path="/" element={<Home />} />      
+          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}    
+          {/* <Route exact path="/login" element={<Login />} /> */}
+          {/* <Route exact path="/register" element={<Register />} /> */}
+          <Route exact path="/login" element={ this.props.currentUser ? (<Navigate to='/' />) : (<Login />)} />
+          <Route exact path="/register" element={ this.props.currentUser ? (<Navigate to='/' />) : (<Register />)} />          
           <Route exact path="/shop" element={<ShopPage />} />
           <Route exact path="/shop/hats" element={<Hats />} /> 
           <Route exact path="/shop/hats/:id" element={<HatDetail />} />          
@@ -134,6 +140,11 @@ class App extends React.Component {
   }
 }
 
+// ⭐ store에 있는 state를 현 위치의 component에 "currentUser"으로 전달
+const mapStateToProps = ({user}) => ({
+  currentUser: user.currentUser
+});
+
 // ⭐ dispatch: component에 있는 state를 store에 전달
 // action에 정의되어 있는 setCurrentUser를 사용해야 한다.
 // 현 component에서 지정된 이름 "setCUser"를 store부터 props("setCUser")로 받아 와 사용 가능 
@@ -142,6 +153,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);
