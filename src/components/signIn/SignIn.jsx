@@ -31,7 +31,7 @@ const SignIn = () => {
 
   return (
     <div className='signIn'>
-      <h2>I already have an account</h2>
+      <h2>Already have an account.</h2>
       <span><b>Sign In</b> with your email and password</span>
 
       <form onSubmit={onSubmitHandler}>

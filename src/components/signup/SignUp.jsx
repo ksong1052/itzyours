@@ -22,8 +22,6 @@ const SignUp = () => {
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, password);
       await createUserProfileDocument(user, { displayName});
-      // const { user } = auth.createUserWithEmailAndPassword(email, password);
-      // createUserProfileDocument(user, { displayName});
 
       setDisplayName('');
       setEmail('');
@@ -52,12 +50,12 @@ const SignUp = () => {
 
   return (
     <div className='signUp'>
-      <h2>I do not have an account</h2>
-      <span><b>Sign Up</b> with your email and password</span>
+      <h2>You want to create an account?</h2>
+      <span><b>Sign Up</b> with your username, email, and password</span>
       <form className='signUpForm' onSubmit={onSubmitHandler}>
         <FormInput 
           type="text" name='displayName' value={displayName} required 
-          label="Display Name"
+          label="Username"
           handleChange={DisplayNameHandler}
         />  
         <FormInput 
