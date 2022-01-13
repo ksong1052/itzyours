@@ -1,0 +1,41 @@
+// .cartIcon {
+//   .counter {
+//     position: absolute;
+//     top: -10px;
+//     right: -10px;
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background-color: white;
+//     padding: 3px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-weight: bold;
+//     color: #d1411e;
+//   }
+// }
+
+.cartIcon {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  .shoppingIcon {
+    width: 45x;
+    height: 45px;
+    z-index: 9;
+  }
+
+  .counter {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    top: 15px;
+    right: 10px;
+  }
+}

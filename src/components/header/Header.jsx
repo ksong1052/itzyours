@@ -10,12 +10,17 @@ import Shopping from '../../images/shopping.svg';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 
-const Header = ({currentUser}) => {
+import CartIcon from '../cartIcon/CartIcon';
+import CartDropdown from '../cartDropdown/CartDropdown';
+
+const Header = ({ currentUser,hidden }) => {
   return (
     <div className="header">
       <div className="item">
         <div className="callIcon">
-          <img src={Shopping} alt="" width="92" height="77" />
+          <Link to="/" className='listItemLink'>            
+            <img src={Shopping} alt="" width="92" height="77" />
+          </Link>          
         </div>
       </div>
       <div className="item">
@@ -62,12 +67,14 @@ const Header = ({currentUser}) => {
           </Link>
           <img src={Cart} alt="" width="30px" height="30px" />
           <div className="counter">2</div>
-        </div> */}
-
+        </div> */}        
         {
           currentUser ?
-          <div className='cart' onClick={() => auth.signOut()}> 
-            <Button variant="text" size="large">SIGN OUT</Button> 
+          <div className="cart">
+            <div onClick={() => auth.signOut()}> 
+              <Button variant="text" size="large">SIGN OUT</Button>              
+            </div>
+            <CartIcon className="cartIcon"/>
           </div>
           :
           <div className="cart">
@@ -80,18 +87,29 @@ const Header = ({currentUser}) => {
               {/* <button className="btn">Register</button> */}
               {/* <Button variant="contained">Register</Button> */}
               <Button variant="contained" size="large" startIcon={<HowToRegIcon />}>REGISTER</Button>
-            </Link>
-          </div>
-        }
-      </div>
+            </Link>            
+          </div>          
+        }        
+
+        {
+          hidden ? null : <CartDropdown />
+        }        
+
+      </div> 
+
     </div>
   )
 }
 
 // ⭐ state: rootReducer를 가리킴
 // store에 있는 state를 현 위치의 component에 "currentUser"으로 전달
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser
+// const mapStateToProps = (state) => ({
+//   currentUser: state.user.currentUser
+// });
+
+const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
+  currentUser,
+  hidden
 });
 
 export default connect(
