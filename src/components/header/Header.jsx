@@ -12,8 +12,18 @@ import { connect } from 'react-redux';
 
 import CartIcon from '../cartIcon/CartIcon';
 import CartDropdown from '../cartDropdown/CartDropdown';
+import { toggleCartHidden } from '../../redux/cart/cart.action';
 
-const Header = ({ currentUser,hidden }) => {
+const Header = ({ currentUser, hidden, toggleCart }) => {
+  function SignOutHandler(e) {
+    // Sign-out할 때 check-out창이 열려 있으면 창을 먼저 닫아 주고 logout
+    if(hidden === false) { 
+      toggleCart(); 
+    }
+
+    auth.signOut();    
+  }
+
   return (
     <div className="header">
       <div className="item">
@@ -71,7 +81,8 @@ const Header = ({ currentUser,hidden }) => {
         {
           currentUser ?
           <div className="cart">
-            <div onClick={() => auth.signOut()}> 
+            {/* <div onClick={() => auth.signOut()}>  */}
+            <div onClick={SignOutHandler}> 
               <Button variant="text" size="large">SIGN OUT</Button>              
             </div>
             <CartIcon className="cartIcon"/>
@@ -106,13 +117,17 @@ const Header = ({ currentUser,hidden }) => {
 // const mapStateToProps = (state) => ({
 //   currentUser: state.user.currentUser
 // });
-
 const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
   currentUser,
   hidden
 });
 
+const mapDispatchToProps = dispatch => ({
+  toggleCart: () => dispatch(toggleCartHidden())
+})
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Header);
 

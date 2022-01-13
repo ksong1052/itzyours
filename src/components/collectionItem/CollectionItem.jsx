@@ -15,7 +15,8 @@ const CollectionItem = ({ item }) => {
         <span className="name">{item.name}</span>
         ${item.price}
         {/* <span className="price">{item.price}</span> */}
-      </div>      
+      </div>   
+      <button className='btn'>ADD TO CART</button>   
     </div>
   )
 }

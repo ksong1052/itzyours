@@ -124,8 +124,8 @@ class App extends React.Component {
           {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}    
           {/* <Route exact path="/login" element={<Login />} /> */}
           {/* <Route exact path="/register" element={<Register />} /> */}
-          <Route exact path="/login" element={ this.props.currentUser ? (<Navigate to='/' />) : (<Login />)} />
-          <Route exact path="/register" element={ this.props.currentUser ? (<Navigate to='/' />) : (<Register />)} />          
+          <Route exact path="/login" element={ this.props.cUser ? (<Navigate to='/' />) : (<Login />)} />
+          <Route exact path="/register" element={ this.props.cUser ? (<Navigate to='/' />) : (<Register />)} />          
           <Route exact path="/shop" element={<ShopPage />} />
           <Route exact path="/shop/hats" element={<Hats />} /> 
           <Route exact path="/shop/hats/:id" element={<HatDetail />} />          
@@ -141,13 +141,14 @@ class App extends React.Component {
 }
 
 // ⭐ store에 있는 state를 현 위치의 component에 "currentUser"으로 전달
+// 현 component에서 지정된 이름 "setCUser"를 this.props("setCUser")로 접근하여 사용 가능
 const mapStateToProps = ({user}) => ({
-  currentUser: user.currentUser
+  cUser: user.currentUser
 });
 
 // ⭐ dispatch: component에 있는 state를 store에 전달
 // action에 정의되어 있는 setCurrentUser를 사용해야 한다.
-// 현 component에서 지정된 이름 "setCUser"를 store부터 props("setCUser")로 받아 와 사용 가능 
+// 현 component에서 지정된 이름 "setCUser"를 this.props("setCUser")로 접근하여 store의 state를 변경 
 const mapDispatchToProps = dispatch => ({
   setCUser: user => dispatch(setCurrentUser(user))
 });
