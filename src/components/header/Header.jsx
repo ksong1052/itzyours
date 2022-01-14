@@ -3,7 +3,7 @@ import './header.scss';
 import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import FaceIcon from '@mui/icons-material/Face';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import Logo from '../../images/logo.png';
 import Shopping from '../../images/shopping.svg';
 // import Cart from '../../images/cart.png';
@@ -15,13 +15,19 @@ import CartDropdown from '../cartDropdown/CartDropdown';
 import { toggleCartHidden } from '../../redux/cart/cart.action';
 
 const Header = ({ currentUser, hidden, toggleCart }) => {
+  const navigate = useNavigate();
+
   function SignOutHandler(e) {
     // Sign-out할 때 check-out창이 열려 있으면 창을 먼저 닫아 주고 logout
     if(hidden === false) { 
       toggleCart(); 
     }
 
-    auth.signOut();    
+    // logout시에 home page로 이동
+    navigate("/"); 
+
+    // firebase로 부터 로그아웃
+    auth.signOut();       
   }
 
   return (
