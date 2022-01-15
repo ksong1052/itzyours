@@ -13,13 +13,16 @@ import NotFound from './pages/notFound/NotFound';
 import Hats from './pages/hats/Hats';
 import HatDetail from './pages/hatDetail/HatDetail';
 import ShopPage from './pages/shopPage/ShopPage';
+import CheckOut from './pages/checkOut/CheckOut';
 // import ProductDetail from './pages/productDetail/ProductDetail';
 
 //import { auth } from './firebase/firebase.utils';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import { setCurrentUser } from './redux/user/user.action';
+import { selectCurrentUser } from './redux/user/user.selector';
 
 // 1. Functional Compoent
 // function App() {
@@ -125,7 +128,8 @@ class App extends React.Component {
           {/* <Route exact path="/login" element={<Login />} /> */}
           {/* <Route exact path="/register" element={<Register />} /> */}
           <Route exact path="/login" element={ this.props.cUser ? (<Navigate to='/' />) : (<Login />)} />
-          <Route exact path="/register" element={ this.props.cUser ? (<Navigate to='/' />) : (<Register />)} />          
+          <Route exact path="/register" element={ this.props.cUser ? (<Navigate to='/' />) : (<Register />)} />   
+          <Route exact path="/checkout" element={<CheckOut />} />       
           <Route exact path="/shop" element={<ShopPage />} />
           <Route exact path="/shop/hats" element={<Hats />} /> 
           <Route exact path="/shop/hats/:id" element={<HatDetail />} />          
@@ -142,8 +146,14 @@ class App extends React.Component {
 
 // ⭐ store에 있는 state를 현 위치의 component에 "currentUser"으로 전달
 // 현 component에서 지정된 이름 "setCUser"를 this.props("setCUser")로 접근하여 사용 가능
-const mapStateToProps = ({user}) => ({
-  cUser: user.currentUser
+// 1.
+// const mapStateToProps = ({user}) => ({
+//   cUser: user.currentUser
+// });
+
+// 2.
+const mapStateToProps = createStructuredSelector({
+  cUser: selectCurrentUser
 });
 
 // ⭐ dispatch: component에 있는 state를 store에 전달

@@ -9,10 +9,13 @@ import Shopping from '../../images/shopping.svg';
 // import Cart from '../../images/cart.png';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import CartIcon from '../cartIcon/CartIcon';
 import CartDropdown from '../cartDropdown/CartDropdown';
 import { toggleCartHidden } from '../../redux/cart/cart.action';
+import { selectCartHidden } from '../../redux/cart/cart.selector';
+import { selectCurrentUser } from '../../redux/user/user.selector';
 
 const Header = ({ currentUser, hidden, toggleCart }) => {
   const navigate = useNavigate();
@@ -123,9 +126,22 @@ const Header = ({ currentUser, hidden, toggleCart }) => {
 // const mapStateToProps = (state) => ({
 //   currentUser: state.user.currentUser
 // });
-const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
-  currentUser,
-  hidden
+// 1.
+// const mapStateToProps = ({user: {currentUser}, cart: {hidden}}) => ({
+//   currentUser,
+//   hidden
+// });
+
+// 2.
+// const mapStateToProps = (state) => ({
+//   currentUser: selectCurrentUser(state),
+//   hidden: selectCartHidden(state)
+// });
+
+// 3.
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden
 });
 
 const mapDispatchToProps = dispatch => ({
