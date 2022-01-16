@@ -17,6 +17,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
   return [...cartItems, { ...cartItemToAdd, quantity: 1}];
 };
 
+// 같은 item에 대한 구매 개수를 감소 시킴 - CheckOut compunent에서 사용됨
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
   const existingCartItem = cartItems.find(
     cartItem => cartItem.id === cartItemToRemove.id
