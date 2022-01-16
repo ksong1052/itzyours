@@ -13,9 +13,9 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { connect } from 'react-redux';
-import { clearItemFromCart } from '../../redux/cart/cart.action';
+import { clearItemFromCart, addItem, removeItem } from '../../redux/cart/cart.action';
 
-const CheckOutItem = ({ cartItems, cartPriceTotal, clearItem }) => {
+const CheckOutItem = ({ cartItems, cartPriceTotal, clearItem, aItem, rItem }) => {
   // function priceRow(qty, unit) {
   //   return qty * unit;
   // }
@@ -67,10 +67,16 @@ const CheckOutItem = ({ cartItems, cartPriceTotal, clearItem }) => {
                   <img src={item.imageUrl} alt="item" className='itemImage'/>                  
                 </TableCell>
                 <TableCell align="center">{item.name}</TableCell>
-                <TableCell align="center">
-
-                  {item.quantity}
-
+                <TableCell align="center" className="quantity">
+                  <button 
+                    className="arrow"
+                    onClick={() => rItem(item)}
+                  >&#10094;</button>
+                  <span className="value">{item.quantity}</span>                     
+                  <button 
+                    className="arrow"
+                    onClick={() => aItem(item)}
+                  >&#10095;</button>
                 </TableCell>
                 <TableCell align="center">{item.price}</TableCell>
                 <TableCell align="right">
@@ -110,8 +116,12 @@ const CheckOutItem = ({ cartItems, cartPriceTotal, clearItem }) => {
   );
 }
 
+
+
 const mapDispatchToProps = dispatch => ({
-  clearItem: item => dispatch(clearItemFromCart(item))
+  clearItem: item => dispatch(clearItemFromCart(item)),
+  aItem: item => dispatch(addItem(item)),
+  rItem: item => dispatch(removeItem(item)),
 });
 
 export default connect(

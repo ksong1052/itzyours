@@ -19,8 +19,20 @@
     height: 80px;
   }
 
-  .checkOutBody {
-    background-color: lightgrey;
+  .quantity {
+    width: 150px;
+
+    .arrow {
+      // background-color: white;
+      // border: none;
+      // outline: none;
+      cursor: pointer;
+    }
+
+    .value {
+      margin: 0 10px;
+      padding: 0 10px;
+    }
   }
 
   .checkOutTitle {
