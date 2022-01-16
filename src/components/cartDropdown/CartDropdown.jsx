@@ -3,11 +3,11 @@ import './cartDropdown.scss';
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import CartItem from '../cartItem/CartItem';
 import { toggleCartHidden } from '../../redux/cart/cart.action';
 import { createStructuredSelector } from 'reselect';
 import { selectCartHidden, selectCartItems } from '../../redux/cart/cart.selector';
-import { useNavigate } from 'react-router-dom';
 
 const CartDropdown = ({ cartItems, hidden, toggleCart }) => {
   const navigate = useNavigate();
