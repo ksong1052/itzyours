@@ -14,6 +14,7 @@ import Hats from './pages/hats/Hats';
 import HatDetail from './pages/hatDetail/HatDetail';
 import ShopPage from './pages/shopPage/ShopPage';
 import CheckOut from './pages/checkOut/CheckOut';
+import Contact from './pages/contact/Contact';
 // import ProductDetail from './pages/productDetail/ProductDetail';
 
 //import { auth } from './firebase/firebase.utils';
@@ -136,6 +137,8 @@ class App extends React.Component {
           <Route path="*" element={<NotFound/>}/>
         </Routes>
 
+        <Contact />
+        
         {/* Footer Component */}
         <Footer />
 
