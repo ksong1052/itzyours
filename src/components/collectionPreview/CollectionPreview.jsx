@@ -3,9 +3,12 @@ import './collectionPreview.scss';
 import CollectionItem from '../collectionItem/CollectionItem';
 
 const CollectionPreview = ({ collection }) => {
+  console.log("CollectionPreview - 12345");
   return (
-    <div className='collectionPreview'>
-      <h1 className="title">{collection.title.toUpperCase()}</h1>
+    <div className='collectionPreview'>      
+      <h1 className="title">
+        {collection.title.toUpperCase()}
+      </h1>
       <div className="preview">
         {
           collection.items

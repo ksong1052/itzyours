@@ -3,21 +3,23 @@ import './cartDropdown.scss';
 import Button from '@mui/material/Button';
 import PaymentIcon from '@mui/icons-material/Payment';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import CartItem from '../cartItem/CartItem';
 import { toggleCartHidden } from '../../redux/cart/cart.action';
 import { createStructuredSelector } from 'reselect';
 import { selectCartHidden, selectCartItems } from '../../redux/cart/cart.selector';
 
-const CartDropdown = ({ cartItems, hidden, toggleCart }) => {
-  const navigate = useNavigate();
+const CartDropdown = ({ cartItems, hidden, toggleCart, history }) => {
+  // const navigate = useNavigate();
 
   function checkOutHandler(e) {
     if(hidden === false) {
       toggleCart(); 
     }
 
-    navigate("/checkout")
+    // navigate("/checkout")
+    history.push('/checkout')
   }
 
   return (
@@ -72,7 +74,7 @@ const mapDispatchToProps = dispatch => ({
   toggleCart: () => dispatch(toggleCartHidden())
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(CartDropdown);
+)(CartDropdown));

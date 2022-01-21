@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect  } from "react-router-dom";
 
 // import Navbar from './components/navbar/Navbar';
 import Header from './components/header/Header';
@@ -10,11 +10,11 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 // import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
 import NotFound from './pages/notFound/NotFound';
-import Hats from './pages/hats/Hats';
-import HatDetail from './pages/hatDetail/HatDetail';
+// import Hats from './pages/hats/Hats';
+// import HatDetail from './pages/hatDetail/HatDetail';
 import ShopPage from './pages/shopPage/ShopPage';
 import CheckOut from './pages/checkOut/CheckOut';
-import Contact from './pages/contact/Contact';
+// import Contact from './pages/contact/Contact';
 // import ProductDetail from './pages/productDetail/ProductDetail';
 
 //import { auth } from './firebase/firebase.utils';
@@ -123,21 +123,37 @@ class App extends React.Component {
         {/* <Navbar currentUser={currentUser} /> */}
         {/* <Navbar /> */}
 
-        <Routes>
-          <Route exact path="/" element={<Home />} />      
+        <Switch>
+          <Route exact path="/" component={Home} />      
           {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}    
           {/* <Route exact path="/login" element={<Login />} /> */}
           {/* <Route exact path="/register" element={<Register />} /> */}
-          <Route exact path="/login" element={ this.props.cUser ? (<Navigate to='/' />) : (<Login />)} />
-          <Route exact path="/register" element={ this.props.cUser ? (<Navigate to='/' />) : (<Register />)} />   
-          <Route exact path="/checkout" element={<CheckOut />} />       
-          <Route exact path="/shop" element={<ShopPage />} />
-          <Route exact path="/shop/hats" element={<Hats />} /> 
-          <Route exact path="/shop/hats/:id" element={<HatDetail />} />          
-          <Route path="*" element={<NotFound/>}/>
-        </Routes>
+          <Route exact path="/login" 
+            component={() => 
+              this.props.cUser ? (
+                <Redirect to='/' />
+              ) : (
+                <Login />
+              )
+            } 
+          />
+          <Route exact path="/register" 
+            component={() => 
+              this.props.cUser ? (
+                <Redirect to='/' />
+              ) : (
+                <Register />
+              )
+            } 
+          />   
+          <Route exact path="/checkout" component={CheckOut} />       
+          <Route path="/shop" component={ShopPage} />
+          {/* <Route exact path="/shop/:collectionId" element={<Collection />} />  */}
+          {/* <Route exact path="/shop/:collectionId/:id" element={<HatDetail />} />                 */}
+          <Route path="*" component={NotFound}/>
+        </Switch>
 
-        <Contact />
+        {/* <Contact /> */}
         
         {/* Footer Component */}
         <Footer />

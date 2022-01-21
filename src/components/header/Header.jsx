@@ -3,13 +3,15 @@ import './header.scss';
 import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import FaceIcon from '@mui/icons-material/Face';
-import { Link, useNavigate } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Logo from '../../images/logo.png';
 import Shopping from '../../images/shopping.svg';
 // import Cart from '../../images/cart.png';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { withRouter } from 'react-router-dom';
 
 import CartIcon from '../cartIcon/CartIcon';
 import CartDropdown from '../cartDropdown/CartDropdown';
@@ -17,8 +19,7 @@ import { toggleCartHidden } from '../../redux/cart/cart.action';
 import { selectCartHidden } from '../../redux/cart/cart.selector';
 import { selectCurrentUser } from '../../redux/user/user.selector';
 
-const Header = ({ currentUser, hidden, toggleCart }) => {
-  const navigate = useNavigate();
+const Header = ({ history, currentUser, hidden, toggleCart }) => {
 
   function SignOutHandler(e) {
     // Sign-out할 때 check-out창이 열려 있으면 창을 먼저 닫아 주고 logout
@@ -27,10 +28,11 @@ const Header = ({ currentUser, hidden, toggleCart }) => {
     }
 
     // logout시에 home page로 이동
-    navigate("/"); 
+    // navigate("/"); 
+    history.push('/')
 
     // firebase로 부터 로그아웃
-    auth.signOut();       
+    auth.signOut();          
   }
 
   return (
@@ -148,8 +150,8 @@ const mapDispatchToProps = dispatch => ({
   toggleCart: () => dispatch(toggleCartHidden())
 })
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Header);
+)(Header));
 
