@@ -3,7 +3,8 @@ import './collectionPreview.scss';
 import CollectionItem from '../collectionItem/CollectionItem';
 
 const CollectionPreview = ({ collection }) => {
-  console.log("CollectionPreview - 12345");
+  // console.log("CollectionPreview - 12345");
+  
   return (
     <div className='collectionPreview'>      
       <h1 className="title">

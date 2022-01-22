@@ -4,11 +4,11 @@ import { withRouter } from 'react-router-dom';
 
 const MenuItem = ({ title, imageUrl, size, linkUrl, history, match }) => {
   // 라우트가 아닌 컴포넌트에서 라우터에서 사용하는 객체 - location, match, history 를 사용하려면, withRouter 라는 HoC 를 사용해야합니다..
-  // HOC인 withRouter를 사용하면 history property를 아래와 같이 사용할 수 있다. 
+  // ⭐ Important - HOC인 withRouter를 사용하면 history property를 아래와 같이 사용할 수 있다. 
 
   //console.log("{match.url}{linkUrl}", match.url+linkUrl);
   function sendUrl(e) {
-    console.log("{match.url}{linkUrl}", match.url+linkUrl);    
+    // console.log("{match.url}{linkUrl}", match.url+linkUrl);    
     //history.push(`${match.url}${linkUrl}`) 
     history.push(`${match.url}${linkUrl}`)
   }

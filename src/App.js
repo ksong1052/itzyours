@@ -2,19 +2,18 @@ import React from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route, Redirect  } from "react-router-dom";
 
-// import Navbar from './components/navbar/Navbar';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-// import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
 import NotFound from './pages/notFound/NotFound';
-// import Hats from './pages/hats/Hats';
-// import HatDetail from './pages/hatDetail/HatDetail';
 import ShopPage from './pages/shopPage/ShopPage';
 import CheckOut from './pages/checkOut/CheckOut';
-// import Contact from './pages/contact/Contact';
+// import Navbar from './components/navbar/Navbar';
+// import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
+// import Hats from './pages/hats/Hats';
+// import HatDetail from './pages/hatDetail/HatDetail';
 // import ProductDetail from './pages/productDetail/ProductDetail';
 
 //import { auth } from './firebase/firebase.utils';
@@ -69,8 +68,8 @@ import { selectCurrentUser } from './redux/user/user.selector';
 //         <Route exact path="/register" element={<Register />} /> */}
 //         <Route exact path="/signin" element={<SignInSignUp />} />
 //         <Route exact path="/shop" element={<ShopPage />} />
-//         <Route exact path="/shop/hats" element={<Hats />} /> 
-//         <Route exact path="/shop/hats/:id" element={<HatDetail />} />          
+//         <Route  path="/shop/hats" element={<Hats />} /> 
+//         <Route  path="/shop/hats/:id" element={<HatDetail />} />          
 //         <Route path="*" element={<NotFound/>}/>
 //       </Routes>
 
@@ -117,7 +116,6 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        {/* Header Component */}
         <Header />
 
         {/* <Navbar currentUser={currentUser} /> */}
@@ -125,9 +123,7 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path="/" component={Home} />      
-          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}    
-          {/* <Route exact path="/login" element={<Login />} /> */}
-          {/* <Route exact path="/register" element={<Register />} /> */}
+          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}   
           <Route exact path="/login" 
             component={() => 
               this.props.cUser ? (
@@ -146,18 +142,17 @@ class App extends React.Component {
               )
             } 
           />   
-          <Route exact path="/checkout" component={CheckOut} />       
+          <Route exact path="/checkout" component={CheckOut} /> 
+
+          {/* 하위 path에 connecting 시키기 위해서는 exact를 붙여 주면 안 된다. 
+              예를 들어, /shop/:id   or   /shop/hats/:id
+          */}
           <Route path="/shop" component={ShopPage} />
-          {/* <Route exact path="/shop/:collectionId" element={<Collection />} />  */}
-          {/* <Route exact path="/shop/:collectionId/:id" element={<HatDetail />} />                 */}
+
           <Route path="*" component={NotFound}/>
-        </Switch>
+        </Switch> 
 
-        {/* <Contact /> */}
-        
-        {/* Footer Component */}
         <Footer />
-
       </Router>
     );
   }
@@ -182,6 +177,7 @@ const mapDispatchToProps = dispatch => ({
   setCUser: user => dispatch(setCurrentUser(user))
 });
 
+// ⭐ connect함수는 redux와 각 component들을 연결 시켜준다.
 export default connect(
   mapStateToProps,
   mapDispatchToProps
