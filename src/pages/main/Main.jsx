@@ -1,11 +1,11 @@
 import React from 'react';
 import './main.scss';
-import vTitle from '../../images/v_title1.png';
+import womenBg from "../../images/womens.jpg";
 
 const Main = () => {
   return (
     <div className='main'>
-      <div className="inner">
+      <div className="inner" style={{backgroundImage: `url(${womenBg})`}}>
         <div className="title">          
           <h2><i>Wanna make a perfect day?</i></h2>
         </div>

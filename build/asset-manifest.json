@@ -1,7 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.755445dd.css",
-    "main.js": "/static/js/main.a1596646.js",
+    "main.css": "/static/css/main.553aa83c.css",
+    "main.js": "/static/js/main.c5f7b1e8.js",
+    "static/media/womens.jpg": "/static/media/womens.88803e12ee45c08fdc92.jpg",
     "static/media/v_bg2.jpg": "/static/media/v_bg2.d16609d3f1ac8857696c.jpg",
     "static/media/bg.png": "/static/media/bg.90251a2b7842b5b47b25.png",
     "static/media/email.svg": "/static/media/email.70752172a62bae68b5cb02f075f3c1df.svg",
@@ -9,11 +10,11 @@
     "static/media/register.svg": "/static/media/register.a2536eb5068051f1d2eab8b9a7a7341e.svg",
     "static/media/shoppingBag.svg": "/static/media/shoppingBag.a688874f6f1507316bdfa420328a4a53.svg",
     "index.html": "/index.html",
-    "main.755445dd.css.map": "/static/css/main.755445dd.css.map",
-    "main.a1596646.js.map": "/static/js/main.a1596646.js.map"
+    "main.553aa83c.css.map": "/static/css/main.553aa83c.css.map",
+    "main.c5f7b1e8.js.map": "/static/js/main.c5f7b1e8.js.map"
   },
   "entrypoints": [
-    "static/css/main.755445dd.css",
-    "static/js/main.a1596646.js"
+    "static/css/main.553aa83c.css",
+    "static/js/main.c5f7b1e8.js"
   ]
 }
