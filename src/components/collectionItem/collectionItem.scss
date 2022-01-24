@@ -1,5 +1,6 @@
 .collectionItem {
   width: 22vw;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -12,6 +13,8 @@
     }
     .btn {
       display: flex;
+      position: absolute;
+      justify-content: center;
     }
   }
 

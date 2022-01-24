@@ -3,11 +3,8 @@ import './header.scss';
 import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import FaceIcon from '@mui/icons-material/Face';
-// import { Link, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import Logo from '../../images/logo.png';
 import Shopping from '../../images/shopping.svg';
-// import Cart from '../../images/cart.png';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -52,43 +49,30 @@ const Header = ({ history, currentUser, hidden, toggleCart }) => {
             </Link>
           </li>
           <li className="listItem">
-            {/* <Link to="/" 
-              style={{textDecoration:"none", color:"black", fontSize:'25px'}}
-            >Products</Link> */}
             <Link to="/" className='listItemLink'>            
               <Button size="large">PRODUCTS</Button>
             </Link>
           </li>
-          {/* <img src={Logo} alt="" width="200px" height="89px" /> */}
+          
+          {
+            currentUser ? 
+              <li className="listItem">
+                <Link to="/shop" className='listItemLink'>            
+                  <Button size="large">SHOP</Button>
+                </Link>
+              </li>
+            :
+            ""
+          }
+          
           <li className="listItem">
-            {/* <Link to="/shop" 
-              style={{textDecoration:"none", color:"black", fontSize:'25px'}}
-            >Shop</Link> */}
-            <Link to="/shop" className='listItemLink'>            
-              <Button size="large">SHOP</Button>
-            </Link>
-          </li>
-          <li className="listItem">
-            {/* <Link to="/" 
-              style={{textDecoration:"none", color:"black", fontSize:'25px'}}
-            >Contacts</Link>   */}
-            <Link to="/" className='listItemLink'>            
+            <Link to="/contact" className='listItemLink'>            
               <Button size="large">CONTACTS</Button>
             </Link>
           </li>          
         </ul>
       </div>
-      <div className="item">
-        {/* <div className="cart">
-          <Link to="/login" style={{textDecoration: 'none'}}>
-            <button className="btn">Login</button>
-          </Link>
-          <Link to="/register" style={{textDecoration: 'none'}}>
-            <button className="btn">Register</button>
-          </Link>
-          <img src={Cart} alt="" width="30px" height="30px" />
-          <div className="counter">2</div>
-        </div> */}        
+      <div className="item">   
         {
           currentUser ?
           <div className="cart">
@@ -101,13 +85,9 @@ const Header = ({ history, currentUser, hidden, toggleCart }) => {
           :
           <div className="cart">
             <Link to="/login" style={{textDecoration: 'none'}}>
-              {/* <button className="btn">Login</button> */}
-              {/* <Button variant="contained">Login</Button> */}
               <Button variant="contained" size="large" startIcon={<FaceIcon />}>LOGIN</Button>
             </Link>
             <Link to="/register" style={{textDecoration: 'none'}}>
-              {/* <button className="btn">Register</button> */}
-              {/* <Button variant="contained">Register</Button> */}
               <Button variant="contained" size="large" startIcon={<HowToRegIcon />}>REGISTER</Button>
             </Link>            
           </div>          
@@ -118,7 +98,6 @@ const Header = ({ history, currentUser, hidden, toggleCart }) => {
         }        
 
       </div> 
-
     </div>
   )
 }

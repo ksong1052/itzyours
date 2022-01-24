@@ -10,6 +10,7 @@ import Register from "./pages/register/Register";
 import NotFound from './pages/notFound/NotFound';
 import ShopPage from './pages/shopPage/ShopPage';
 import CheckOut from './pages/checkOut/CheckOut';
+import Contact from './pages/contact/Contact';
 // import Navbar from './components/navbar/Navbar';
 // import SignInSignUp from './pages/SignInSignUp/SignInSignUp';
 // import Hats from './pages/hats/Hats';
@@ -148,6 +149,7 @@ class App extends React.Component {
               예를 들어, /shop/:id   or   /shop/hats/:id
           */}
           <Route path="/shop" component={ShopPage} />
+          <Route exact path="/contact" component={Contact} />
 
           <Route path="*" component={NotFound}/>
         </Switch> 
