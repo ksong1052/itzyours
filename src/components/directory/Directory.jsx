@@ -8,7 +8,7 @@ import { selectDirectorySections } from '../../redux/directory/directory.selecto
 
 const Directory = ({ sections }) => { 
   return (
-    <div className="directoryMenu">
+    <div className="directoryMenu">      
       {
         sections.map((section) => (
           <MenuItem 
@@ -19,7 +19,7 @@ const Directory = ({ sections }) => {
             size={section.size}             
           />
         ))
-      }      
+      }  
     </div>
   )
 }
