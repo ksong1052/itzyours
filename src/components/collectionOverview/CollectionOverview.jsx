@@ -6,7 +6,9 @@ import { createStructuredSelector } from 'reselect';
 import CollectionPreview from '../collectionPreview/CollectionPreview';
 import { selectCollectionForPreview } from '../../redux/shop/shop.selector';
 
-const CollectionOverview = ({ collections }) => {  
+const CollectionOverview = ({ collections, match }) => {  
+  // console.log("CollectionOverview - match:",match);
+  
   return (
     <div className='collectionsOverview'>   
       {
@@ -14,6 +16,7 @@ const CollectionOverview = ({ collections }) => {
           <CollectionPreview 
             key={collection.id}  
             collection = {collection}
+            match={match}
           />
         ))
       }      
