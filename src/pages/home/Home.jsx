@@ -3,7 +3,7 @@ import './home.scss';
 import { HomePageContainer } from './home.styles';
 import Main from '../main/Main';
 import Directory from '../../components/directory/Directory';
-// import Contact from '../../pages/contact/Contact';
+import Contact from '../../pages/contact/Contact';
 import Event from '../../pages/event/Event';
 
 const Home = () => {
@@ -14,7 +14,9 @@ const Home = () => {
         <h2>Products</h2>
       </div>
       <Directory />  
-      {/* <Contact />     */}
+      <div className="homeContact">
+        <Contact />
+      </div>          
       <Event />
     </HomePageContainer>
   )

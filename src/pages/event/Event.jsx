@@ -40,7 +40,7 @@ const Event = () => {
             </div>
             <div className="back">
               <img src={Back} alt="" />
-              <a href="javascript:void(0)" className="btn">Location</a>
+              <a href="#" className="btn">Location</a>
             </div>
           </div>
 
