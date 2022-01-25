@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import FaceIcon from '@mui/icons-material/Face';
 import { Link } from "react-router-dom";
-import Logo from '../../images/coollogo1.png';
+import Logo from '../../images/coollogo4.png';
 import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -37,7 +37,7 @@ const Header = ({ history, currentUser, hidden, toggleCart }) => {
       <div className="item">
         <div className="callIcon">
           <Link to="/" className='listItemLink'>            
-            <img src={Logo} alt="" width="182" height="57" />
+            <img src={Logo} alt="" width="100" height="45" />
           </Link>          
         </div>
       </div>
