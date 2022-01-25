@@ -1,14 +1,15 @@
 import React from 'react'
 import './footer.scss';
-import BG from '../../images/bg.png';
+// import BG from '../../images/bg.png';
+import Shopping from '../../images/shopping.svg';
 
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="item">
-        <img src={BG} alt="" width="550" height="600" />
+      <div className="item1">
+        <img src={Shopping} alt="" width="300" height="330" />
       </div>
-      <div className="item">
+      <div className="item2">
         <div className="card">
           <h2 className="motto">
             OH YES, WE DID, THE DANIEL PIZZA, WELL BAKED SLICE OF PIZZA.            
@@ -16,11 +17,6 @@ const Footer = () => {
         </div>
         <div className="card">
           <h1 className="title">FIND OUR RESTAURANTS</h1>
-          <p className="text">
-            1654 R. Don Road #304.
-            <br /> Halifax, 12345
-            <br /> (82) 123-4567
-          </p>
           <p className="text">
             1654 R. Don Road #304.
             <br /> Halifax, 12345

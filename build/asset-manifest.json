@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.0958b059.css",
-    "main.js": "/static/js/main.28fe720a.js",
+    "main.css": "/static/css/main.c6d337b3.css",
+    "main.js": "/static/js/main.2425459c.js",
     "static/media/womens.jpg": "/static/media/womens.88803e12ee45c08fdc92.jpg",
     "static/media/v_bg2.jpg": "/static/media/v_bg2.d16609d3f1ac8857696c.jpg",
-    "static/media/bg.png": "/static/media/bg.90251a2b7842b5b47b25.png",
+    "static/media/coollogo1.png": "/static/media/coollogo1.1387137d6eb496b82814.png",
     "static/media/email.svg": "/static/media/email.70752172a62bae68b5cb02f075f3c1df.svg",
     "static/media/shopping.svg": "/static/media/shopping.b87a964ee39f1d1845fac7ec41c73f98.svg",
     "static/media/register.svg": "/static/media/register.a2536eb5068051f1d2eab8b9a7a7341e.svg",
     "static/media/shoppingBag.svg": "/static/media/shoppingBag.a688874f6f1507316bdfa420328a4a53.svg",
     "index.html": "/index.html",
-    "main.0958b059.css.map": "/static/css/main.0958b059.css.map",
-    "main.28fe720a.js.map": "/static/js/main.28fe720a.js.map"
+    "main.c6d337b3.css.map": "/static/css/main.c6d337b3.css.map",
+    "main.2425459c.js.map": "/static/js/main.2425459c.js.map"
   },
   "entrypoints": [
-    "static/css/main.0958b059.css",
-    "static/js/main.28fe720a.js"
+    "static/css/main.c6d337b3.css",
+    "static/js/main.2425459c.js"
   ]
 }
