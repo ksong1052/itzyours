@@ -4,6 +4,7 @@ import { HomePageContainer } from './home.styles';
 import Main from '../main/Main';
 import Directory from '../../components/directory/Directory';
 // import Contact from '../../pages/contact/Contact';
+import Event from '../../pages/event/Event';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       </div>
       <Directory />  
       {/* <Contact />     */}
+      <Event />
     </HomePageContainer>
   )
 }
