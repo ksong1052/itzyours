@@ -9,12 +9,13 @@
 
   .inner {
     padding: 110px 0;
+    // background-color: yellow;
   }
 
   .text-group {
     position: absolute;
     width: 282px;
-    right: 0;
+    left: 250px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -23,9 +24,11 @@
       font-size: 30px;
       font-weight: 700;
       margin-bottom: 15px;
+      color: rgb(139, 97, 19);
     }
 
     .description {
+      font-size: 15px;
       margin-bottom: 15px;
     }
   }

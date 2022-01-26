@@ -45,6 +45,7 @@ const Header = ({ history, currentUser, hidden, toggleCart }) => {
         <ul className="list">
           <li className="listItem">
             <Link to="/" className='listItemLink'>            
+              {/* <Button size="large" style={{color:"white", fontSize:"18px"}}>HOME</Button> */}
               <Button size="large">HOME</Button>
             </Link>
           </li>

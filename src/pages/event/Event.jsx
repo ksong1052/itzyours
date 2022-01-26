@@ -24,7 +24,7 @@ const Event = () => {
               Nemo mollitia amet consequatur culpa quae.
             </div>
             <div className="more back-to-position to-right delay-2">
-              <a href="#" className="btn btn--white">Detail</a>
+              <a href="#" className="btn btn--black">Detail</a>
             </div>
           </div>
 
