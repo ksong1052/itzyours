@@ -1,3 +1,7 @@
+$title: rgb(158, 125, 185);
+$btn-ligh-blue: rgb(132, 124, 202);
+$btn-blue: rgb(73, 65, 150);
+
 .contact {
   width: 100%;
   padding-bottom: 20px;
@@ -30,7 +34,8 @@
       p {
         font-size: 23px;
         font-weight: 400;
-        color: rgb(187, 141, 57);
+        // color: rgb(187, 141, 57);
+        color: $title;
       }
 
       h1 {
@@ -56,15 +61,25 @@
           justify-content: center;
 
           h3 {
-            color: rgb(187, 141, 57);
+            color: $title;
           }
 
           p {
             color: rgb(126, 111, 111);
+            font-weight: bold;
+            padding-bottom: 5px;
           }
 
           .contactSocial {
-            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 7px;
+
+            .socialIcon {
+              // padding-left: 25px;
+              // margin: 3px;
+            }
           }
         }
 
@@ -154,11 +169,15 @@
           position: absolute;
           left: 30px;
           margin-top: 18px;
-          background-color: rgb(216, 213, 29);
+          background-color: $btn-ligh-blue;
           border: none;
           color: white;
           font-size: 15px;
           font-weight: bold;
+        }
+
+        .mSubmit:hover {
+          background-color: $btn-blue;
         }
       }
     }

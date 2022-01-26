@@ -1,3 +1,6 @@
+$btn-ligh-blue: rgb(132, 124, 202);
+$btn-blue: rgb(73, 65, 150);
+
 .register {
   margin-top: 120px;
   padding-top: 80px;
@@ -99,5 +102,10 @@
 
   .submitBtn {
     width: 250px;
+    background-color: $btn-ligh-blue;
+  }
+
+  .submitBtn:hover {
+    background-color: $btn-blue;
   }
 }

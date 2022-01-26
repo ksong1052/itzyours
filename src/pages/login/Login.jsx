@@ -83,7 +83,7 @@ const Login = () => {
                 className="input"
               /> 
               {/* <button className="btn" type="submit">Login</button> */}
-              <Button type="submit" variant="contained" color="success" className='submitBtn'>Login</Button>
+              <Button type="submit" variant="contained" className='submitBtn'>Login</Button>
             </form>
           </div>  
               

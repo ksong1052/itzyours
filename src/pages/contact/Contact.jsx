@@ -1,5 +1,9 @@
 import React from 'react';
 import './contact.scss';
+import Button from '@mui/material/Button';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import Email from "../../images/email.svg";
 
 const Contact = () => {
@@ -7,7 +11,7 @@ const Contact = () => {
     <div className='contact'>
       <div className="container">
         <div className="contactHeader">
-          <p>Contact Us</p>
+          <p>Contact Me</p>
           <h1>Contact For Any Query</h1>
         </div>
         <div className="contactGroup">
@@ -21,26 +25,28 @@ const Contact = () => {
           <div className="contactInfo">
             <div className="contactIcon"></div>
             <div className="contactText">
-              <h3>Call Us</h3>
+              <h3>Call</h3>
               <p>123-456-7890</p>
             </div>
           </div>
           <div className="contactInfo">
             <div className="contactIcon"></div>
             <div className="contactText">
-              <h3>Email Us</h3>
+              <h3>Email</h3>
               <p>ksong1052@gmail.com</p>
             </div>
           </div>
           <div className="contactInfo">
             <div className="contactIcon"></div>
             <div className="contactText">
-              <h3>Follow Us</h3>
+              <h3>Follow</h3>
               <div className="contactSocial">
-                <button>twitter</button>
+                {/* <button>twitter</button>
                 <button>facebook</button>
-                <button>youtube</button>
-                <button>linkedIn</button>
+                <button>linkedIn</button> */}
+                <Button size="large" startIcon={<TwitterIcon />} className='socialIcon' />
+                <Button size="large" startIcon={<FacebookIcon />} className='socialIcon' />
+                <Button size="large" startIcon={<LinkedInIcon />} className='socialIcon' />
               </div>
             </div>
           </div>          
