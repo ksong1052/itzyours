@@ -12,36 +12,36 @@ const Footer = () => {
       <div className="item2">
         <div className="card">
           <h2 className="motto">
-            OH YES, WE DID, THE DANIEL PIZZA, WELL BAKED SLICE OF PIZZA.            
+            OH YES, WE DID, MAKE A PERFECT.            
           </h2>
         </div>
         <div className="card">
-          <h1 className="title">FIND OUR RESTAURANTS</h1>
+          <h1 className="title">FIND OUR STORE</h1>
           <p className="text">
-            1654 R. Don Road #304.
+            1234 King Road #301.
             <br /> Halifax, 12345
-            <br /> (82) 123-4567
+            <br /> (902) 123-4567
           </p>
           <p className="text">
-            1654 R. Don Road #304.
+            1234 Queen Road #302.
             <br /> Halifax, 12345
-            <br /> (82) 123-4567
+            <br /> (902) 123-4568
           </p>
           <p className="text">
-            1654 R. Don Road #304.
+            1234 Larry Road #303.
             <br /> Halifax, 12345
-            <br /> (82) 123-4567
+            <br /> (902) 123-4569
           </p>          
         </div>
         <div className="card">
           <h1 className="title">WORKING HOURS</h1>
           <p className="text">
             MONDAY UNTIL FRIDAY 
-            <br /> 9:00 - 22:00
+            <br /> 11:00 - 20:00
           </p>
           <p className="text">
             SATURDAY - SUNDAY 
-            <br /> 12:00 - 24:00
+            <br /> 11:00 - 18:00
           </p>
         </div>
       </div>

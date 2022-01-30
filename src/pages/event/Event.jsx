@@ -4,6 +4,7 @@ import React from 'react'
 import './event.scss';
 import Front from '../../images/front.png';
 import Back from '../../images/back.png';
+// import Back from '../../images/sale1.jpg';
 import Shopping1 from '../../images/shopping7.jpg';
 import Shopping2 from '../../images/shopping2.jpg';
 
@@ -39,7 +40,7 @@ const Event = () => {
               <img src={Front} alt="" />
             </div>
             <div className="back">
-              <img src={Back} alt="" />
+              <img src={Back} alt="" className='fm2BackImg'/>
               <a href="#" className="btn">Location</a>
             </div>
           </div>

@@ -81,7 +81,11 @@ import { selectCurrentUser } from './redux/user/user.selector';
 //   );
 // }
 
+
+
 // 2. Class component
+
+
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
@@ -104,6 +108,7 @@ class App extends React.Component {
       }
       
       setCUser(userAuth);
+      // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({ title, items })));
       // console.log("this.props2", this.props);
       // console.log("this.props.setCUser", setCUser);
       // console.log("this.props.currentUser", this.props.currentUser);

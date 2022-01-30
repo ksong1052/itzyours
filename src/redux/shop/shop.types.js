@@ -1,5 +1,5 @@
 const ShopActionTypes = {
-  SET_COLLECTION_ID: 'SET_COLLECTION_ID',
+  UPDATE_COLLECTIONS: 'UPDATE_COLLECTIONS',
 }
 
 export default ShopActionTypes;

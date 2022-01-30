@@ -145,8 +145,8 @@
 window.onscroll = function() {
   const header = document.querySelector('.header');
   var top = window.scrollY;  
-  console.log("header:", header.className);
-  console.log("top:", top);
+  // console.log("header:", header.className);
+  // console.log("top:", top);
   if(top >= 50) {
     header.classList.add('active')
   } else {
