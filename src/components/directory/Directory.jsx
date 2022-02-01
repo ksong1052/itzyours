@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItem from '../menuItem/MenuItem';
 import './directory.scss';
-import Bag from '../../images/bag1.png';
+import Bag from '../../images/bag2.png';
 // import SectionData from '../../data/section.data.js';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
