@@ -10,9 +10,9 @@ const Home = () => {
   return (
     <HomePageContainer>  
       <Main />
-      <div className="homeTitle">
+      {/* <div className="homeTitle">
         <h2>Products</h2>
-      </div>
+      </div> */}
       <Directory />  
       {/* <div className="homeContact">
         <Contact />

@@ -10,7 +10,7 @@ export const selectShopCollections = createSelector(
 // 이것은 shop.data.js의 값을 배역에서 객체로 변경했기 때문이다.
 export const selectCollectionForPreview = createSelector(
   [selectShopCollections],
-  collections => Object.keys(collections).map(key => collections[key])
+  collections => (collections ? Object.keys(collections).map(key => collections[key]) : [])
 );
 
 
@@ -48,5 +48,5 @@ export const selectCollectionForPreview = createSelector(
 export const selectCollection = collectionUrlParam => 
   createSelector(
     [selectShopCollections],
-    collections => collections[collectionUrlParam]    
+    collections => (collections ? collections[collectionUrlParam] : null)
   );

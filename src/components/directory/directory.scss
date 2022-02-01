@@ -1,3 +1,45 @@
+$title: rgb(158, 125, 185);
+
+.directory {
+  width: 100%;
+  position: relative;
+}
+
+.directoryImgGroup {
+  display: flex;
+  justify-content: center;
+
+  .directoryImg1 {
+    top: -78px;
+    left: 678px;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .directoryImg2 {
+    width: 110px;
+    height: 170px;
+    position: absolute;
+    top: -70px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: 1.5s;
+
+    &:hover {
+      // transform-origin: 100% 0 0 rotate(45deg);
+      transform: rotate(720deg);
+    }
+  }
+}
+
+.directoryTitle {
+  width: 100%;
+  padding: 20px 0 20px 25px;
+  color: $title;
+  text-shadow: 2px 2px #0e0d18;
+}
+
 .directoryMenu {
   width: 100%;
   display: flex;
