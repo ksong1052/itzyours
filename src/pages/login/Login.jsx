@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import './login.scss';
+import { connect } from 'react-redux';
 import Button from '@mui/material/Button';
 import Google from "../../images/google.png";
 import Github from "../../images/github.png";
 import Background from '../../images/v_bg2.jpg';
 import TextField from '@mui/material/TextField';
 // import FormInput from '../../components/formInput/FormInput';
-import { signInWithGoogle } from '../../firebase/firebase.utils';
-import { auth } from '../../firebase/firebase.utils';
+// import { auth } from '../../firebase/firebase.utils';
+import { googleSignInStart, emailSignInStart } from '../../redux/user/user.action';
 
-const Login = () => {
+
+const Login = ({ googleSignInStart, emailSignInStart }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,13 +26,20 @@ const Login = () => {
   const onSubmitHandler = async (e) => {    
     e.preventDefault();
 
-    try {
-      await auth.signInWithEmailAndPassword(email, password);
-      setEmail('');
-      setPassword('');
-    } catch(error) {
-      console.log(error);
-    }    
+    // 1. without Redux-Saga
+    // try {
+    //   await auth.signInWithEmailAndPassword(email, password);
+  //   setEmail('');
+    //   setPassword('');  
+    // } catch(error) {
+    //   console.log(error);
+    // }    
+
+    // 2. With Redux-saga
+    emailSignInStart(email, password);
+    setEmail('');
+    setPassword('');
+
   }; 
 
   function onChnageEmailHandler(e) {
@@ -47,7 +56,7 @@ const Login = () => {
         <h1 className="loginTitle">Sign In</h1>
         
           <div className="left">
-            <div className="loginButton google" onClick={signInWithGoogle}>
+            <div className="loginButton google" onClick={googleSignInStart}>
               <img src={Google} alt="" className="icon" />
               Google
             </div>
@@ -92,4 +101,12 @@ const Login = () => {
   )
 }
 
-export default Login
+const mapDispatchToProps = dispatch => ({
+  googleSignInStart: () => dispatch(googleSignInStart()),
+  emailSignInStart: (email, password) => dispatch(emailSignInStart({email, password}))
+})
+
+export default connect(
+  null, 
+  mapDispatchToProps
+)(Login);

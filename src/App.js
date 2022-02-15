@@ -18,39 +18,40 @@ import Contact from './pages/contact/Contact';
 // import ProductDetail from './pages/productDetail/ProductDetail';
 
 //import { auth } from './firebase/firebase.utils';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+// import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { setCurrentUser } from './redux/user/user.action';
+// import { setCurrentUser } from './redux/user/user.action';
 import { selectCurrentUser } from './redux/user/user.selector';
+import { checkUserSession } from './redux/user/user.action';
 
 // 1. Functional Compoent
 // function App() {
-//   // const [currentUser, setCurrentUser] = useState({})  
+//   // const [currentUser, setCurrentUser] = useState({})
 
-//   useEffect(() => {    
+//   useEffect(() => {
 //     //const { setCurrentUser } = this.props;
 
-//     auth.onAuthStateChanged(async (userAuth) => {    
+//     auth.onAuthStateChanged(async (userAuth) => {
 //       if(userAuth) {
 //         const userRef = await createUserProfileDocument(userAuth);
 
 //         userRef.onSnapshot(snapShot => {
 //           setCurrentUser(
-//             {            
+//             {
 //               id: snapShot.id,
-//               ...snapShot.data()            
+//               ...snapShot.data()
 //             });
-//         });        
+//         });
 //       }
 //       setCurrentUser(userAuth);
 
 //       //const cUser = userAuth.multiFactor.user;
 
-//       // if(!userAuth) {        
+//       // if(!userAuth) {
 //       //   console.log("There is no user information.");
-//       // } 
+//       // }
 //       // setCurrentUser(userAuth);
 //     });
 //   }, [])
@@ -64,13 +65,13 @@ import { selectCurrentUser } from './redux/user/user.selector';
 //       <Navbar />
 
 //       <Routes>
-//         <Route exact path="/" element={<Home />} />          
+//         <Route exact path="/" element={<Home />} />
 //         {/* <Route exact path="/login" element={<Login />} />
 //         <Route exact path="/register" element={<Register />} /> */}
 //         <Route exact path="/signin" element={<SignInSignUp />} />
 //         <Route exact path="/shop" element={<ShopPage />} />
-//         <Route  path="/shop/hats" element={<Hats />} /> 
-//         <Route  path="/shop/hats/:id" element={<HatDetail />} />          
+//         <Route  path="/shop/hats" element={<Hats />} />
+//         <Route  path="/shop/hats/:id" element={<HatDetail />} />
 //         <Route path="*" element={<NotFound/>}/>
 //       </Routes>
 
@@ -84,38 +85,40 @@ import { selectCurrentUser } from './redux/user/user.selector';
 
 
 // 2. Class component
-
-
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
-  componentDidMount() {  
+  componentDidMount() {
     // Store에 저장된 이름("setCUser")으로 props를 받아야 사용
-    const { setCUser } = this.props;
+    // const { setCUser } = this.props;
 
     // console.log("this.props1", this.props);
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
-          setCUser({
-            id: snapShot.id,
-            ...snapShot.data()
-          });
-        });
-      }
-      
-      setCUser(userAuth);
-      // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({ title, items })));
-      // console.log("this.props2", this.props);
-      // console.log("this.props.setCUser", setCUser);
-      // console.log("this.props.currentUser", this.props.currentUser);
-    });
+    //     userRef.onSnapshot(snapShot => {
+    //       setCUser({
+    //         id: snapShot.id,
+    //         ...snapShot.data()
+    //       });
+    //     });
+    //   }
+
+    //   setCUser(userAuth);
+    //   // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({ title, items })));
+    //   // console.log("this.props2", this.props);
+    //   // console.log("this.props.setCUser", setCUser);
+    //   // console.log("this.props.currentUser", this.props.currentUser);
+    // });
+
+    // Using Redux-Saga
+    const { checkUserSession } = this.props;
+    checkUserSession();
   }
 
-  componentWillUnmount() {    
+  componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
 
@@ -128,36 +131,36 @@ class App extends React.Component {
         {/* <Navbar /> */}
 
         <Switch>
-          <Route exact path="/" component={Home} />      
-          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}   
-          <Route exact path="/login" 
-            component={() => 
+          <Route exact path="/" component={Home} />
+          {/* <Route exact path="/signin" element={<SignInSignUp />} /> */}
+          <Route exact path="/login"
+            render={() =>
               this.props.cUser ? (
                 <Redirect to='/' />
               ) : (
                 <Login />
               )
-            } 
+            }
           />
-          <Route exact path="/register" 
-            component={() => 
+          <Route exact path="/register"
+            render={() =>
               this.props.cUser ? (
                 <Redirect to='/' />
               ) : (
                 <Register />
               )
-            } 
-          />   
-          <Route exact path="/checkout" component={CheckOut} /> 
+            }
+          />
+          <Route exact path="/checkout" component={CheckOut} />
 
-          {/* 하위 path에 connecting 시키기 위해서는 exact를 붙여 주면 안 된다. 
+          {/* 하위 path에 connecting 시키기 위해서는 exact를 붙여 주면 안 된다.
               예를 들어, /shop/:id   or   /shop/hats/:id
           */}
           <Route path="/shop" component={ShopPage} />
           <Route exact path="/contact" component={Contact} />
 
           <Route path="*" component={NotFound}/>
-        </Switch> 
+        </Switch>
 
         <Footer />
       </Router>
@@ -179,9 +182,9 @@ const mapStateToProps = createStructuredSelector({
 
 // ⭐ dispatch: component에 있는 state를 store에 전달
 // action에 정의되어 있는 setCurrentUser를 사용해야 한다.
-// 현 component에서 지정된 이름 "setCUser"를 this.props("setCUser")로 접근하여 store의 state를 변경 
+// 현 component에서 지정된 이름 "setCUser"를 this.props("setCUser")로 접근하여 store의 state를 변경
 const mapDispatchToProps = dispatch => ({
-  setCUser: user => dispatch(setCurrentUser(user))
+  checkUserSession: () => dispatch(checkUserSession())
 });
 
 // ⭐ connect함수는 redux와 각 component들을 연결 시켜준다.

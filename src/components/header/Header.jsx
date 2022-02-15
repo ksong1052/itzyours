@@ -5,7 +5,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import FaceIcon from '@mui/icons-material/Face';
 import { Link } from "react-router-dom";
 import Logo from '../../images/coollogo4.png';
-import { auth } from '../../firebase/firebase.utils';
+// import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
@@ -15,8 +15,9 @@ import CartDropdown from '../cartDropdown/CartDropdown';
 import { toggleCartHidden } from '../../redux/cart/cart.action';
 import { selectCartHidden } from '../../redux/cart/cart.selector';
 import { selectCurrentUser } from '../../redux/user/user.selector';
+import { signOutStart } from '../../redux/user/user.action';
 
-const Header = ({ history, currentUser, hidden, toggleCart }) => {
+const Header = ({ history, currentUser, hidden, toggleCart, signOutStart }) => {
 
   function SignOutHandler(e) {
     // Sign-out할 때 check-out창이 열려 있으면 창을 먼저 닫아 주고 logout
@@ -29,7 +30,8 @@ const Header = ({ history, currentUser, hidden, toggleCart }) => {
     history.push('/')
 
     // firebase로 부터 로그아웃
-    auth.signOut();          
+    //auth.signOut();    
+    signOutStart();      
   }
 
   return (
@@ -127,7 +129,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleCart: () => dispatch(toggleCartHidden())
+  toggleCart: () => dispatch(toggleCartHidden()),
+  signOutStart: () => dispatch(signOutStart())
 })
 
 export default withRouter(connect(

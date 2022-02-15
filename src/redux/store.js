@@ -1,9 +1,17 @@
 import { createStore, applyMiddleware } from 'redux';
 import { persistStore } from 'redux-persist';
 import logger from 'redux-logger';
+import createSagaMiddleware from '@redux-saga/core';
 import rootReducer from './root.reducer';
+import rootSaga from './root.saga';
 
-const middlewares = [logger];
+const sagaMiddleware = createSagaMiddleware();
+
+const middlewares = [logger, sagaMiddleware];
+
+// if(process.env.NODE_ENV === 'development') {
+//   middlewares.push(logger);
+// }
 
 // 1.
 // export const store = createStore(rootReducer, applyMiddleware(...middlewares));
@@ -16,4 +24,10 @@ const middlewares = [logger];
 // 2.
 export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
-export const persistor = persistStore(store);  // 이것은 window.localStorage에 store에 있는 state정보를 저장하기 위해 사용 - session 유지를 위해
+// Executing the integrating saga function in the middleware
+sagaMiddleware.run(rootSaga);
+
+// 이것은 window.localStorage에 store에 있는 state정보를 저장하기 위해 사용 - session 유지를 위해
+export const persistor = persistStore(store);
+
+export default { store, persistor };

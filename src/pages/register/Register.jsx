@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import './register.scss';
+import { connect } from 'react-redux';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import RegisterImage from "../../images/register.svg";
 import Background from '../../images/v_bg2.jpg';
 import TextField from '@mui/material/TextField';
 // import FormInput from '../../components/formInput/FormInput';
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+// import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { signUpStart } from '../../redux/user/user.action';
 
-const Register = () => {
+const Register = ({ signUpStart }) => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,17 +25,24 @@ const Register = () => {
       return;
     }
     
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(email, password);
-      await createUserProfileDocument(user, { displayName});
+    // try {
+    //   const { user } = await auth.createUserWithEmailAndPassword(email, password);
+    //   await createUserProfileDocument(user, { displayName});
 
-      setDisplayName('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');      
-    } catch(error) {
-      console.log(error);
-    }
+    //   setDisplayName('');
+    //   setEmail('');
+    //   setPassword('');
+    //   setConfirmPassword('');      
+    // } catch(error) {
+    //   console.log(error);
+    // }
+
+    signUpStart({displayName, email, password});
+
+    setDisplayName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword(''); 
   }
 
   function DisplayNameHandler(e) {
@@ -123,4 +132,11 @@ const Register = () => {
   )
 }
 
-export default Register
+const mapDispatchToProps = dispatch => ({
+  signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Register);
