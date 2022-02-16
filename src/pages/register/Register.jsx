@@ -45,20 +45,39 @@ const Register = ({ signUpStart }) => {
     setConfirmPassword(''); 
   }
 
-  function DisplayNameHandler(e) {
-    setDisplayName(e.target.value);
-  }
+  // function DisplayNameHandler(e) {
+  //   setDisplayName(e.target.value);
+  // }
   
-  function EmailHandler(e) {
-    setEmail(e.target.value);
-  }
+  // function EmailHandler(e) {
+  //   setEmail(e.target.value);
+  // }
 
-  function PasswordHandler(e) {
-    setPassword(e.target.value);
-  }
+  // function PasswordHandler(e) {
+  //   setPassword(e.target.value);
+  // }
 
-  function ConfirmPasswordHandler(e) {
-    setConfirmPassword(e.target.value);
+  // function ConfirmPasswordHandler(e) {
+  //   setConfirmPassword(e.target.value);
+  // }
+
+  function signHandler(e) {
+    switch (e.target.name) {
+      case 'displayName':
+        setDisplayName(e.target.value);  
+        break;
+      case 'email':
+        setEmail(e.target.value);
+        break;
+      case 'password':
+        setPassword(e.target.value);
+        break;
+      case 'confirmPassword':
+        setConfirmPassword(e.target.value);
+        break;  
+      default:
+        break;
+    }
   }
 
   return (
@@ -83,17 +102,18 @@ const Register = ({ signUpStart }) => {
               label="Username"
               type="text"                
               variant="standard"
-              onChange={DisplayNameHandler}
+              onChange={signHandler}
               value={displayName}
               className="input"
               required
             />  
             <TextField 
               id="email"
+              name="email"
               label="Email"
               type="email"                
               variant="standard"
-              onChange={EmailHandler}
+              onChange={signHandler}
               value={email}
               className="input"
               required
@@ -105,7 +125,7 @@ const Register = ({ signUpStart }) => {
               type="password"
               autoComplete="current-password"
               variant="standard"
-              onChange={PasswordHandler}
+              onChange={signHandler}
               value={password}
               className="input"
               required
@@ -117,7 +137,7 @@ const Register = ({ signUpStart }) => {
               type="password"
               autoComplete="current-password"
               variant="standard"
-              onChange={ConfirmPasswordHandler}
+              onChange={signHandler}
               value={confirmPassword}
               className="input"
               required

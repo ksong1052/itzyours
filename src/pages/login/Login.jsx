@@ -15,6 +15,8 @@ const Login = ({ googleSignInStart, emailSignInStart }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  // const [userCredentials, setUserCredentials] = useState({email: '', password: ''});
+
   // const google = () => {
   //   window.open("http://localhost:5000/auth/google", "_self");
   // }
@@ -23,6 +25,7 @@ const Login = ({ googleSignInStart, emailSignInStart }) => {
     window.open("http://localhost:5000/auth/github", "_self");
   }
 
+  // const { email, password } = userCredentials;
   const onSubmitHandler = async (e) => {    
     e.preventDefault();
 
@@ -35,7 +38,7 @@ const Login = ({ googleSignInStart, emailSignInStart }) => {
     //   console.log(error);
     // }    
 
-    // 2. With Redux-saga
+    // 2. With Redux-saga  
     emailSignInStart(email, password);
     setEmail('');
     setPassword('');
@@ -49,6 +52,11 @@ const Login = ({ googleSignInStart, emailSignInStart }) => {
   function onChnagePasswordHandler(e) {
     setPassword(e.target.value)
   }
+
+  // const handleChange = event => {
+  //   const { value, name } = event.target;
+  //   setUserCredentials({ ...userCredentials, [name]: value });
+  // }
 
   return (
     <div className="login">

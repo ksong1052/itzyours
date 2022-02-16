@@ -5,7 +5,6 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import FaceIcon from '@mui/icons-material/Face';
 import { Link } from "react-router-dom";
 import Logo from '../../images/coollogo4.png';
-// import { auth } from '../../firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router-dom';
@@ -46,8 +45,7 @@ const Header = ({ history, currentUser, hidden, toggleCart, signOutStart }) => {
       <div className="item">
         <ul className="list">
           <li className="listItem">
-            <Link to="/" className='listItemLink'>            
-              {/* <Button size="large" style={{color:"white", fontSize:"18px"}}>HOME</Button> */}
+            <Link to="/" className='listItemLink'>      
               <Button size="large">HOME</Button>
             </Link>
           </li>
@@ -78,8 +76,7 @@ const Header = ({ history, currentUser, hidden, toggleCart, signOutStart }) => {
       <div className="item">   
         {
           currentUser ?
-          <div className="cart">
-            {/* <div onClick={() => auth.signOut()}>  */}
+          <div className="cart">            
             <div onClick={SignOutHandler}> 
               <Button variant="text" size="large">SIGN OUT</Button>              
             </div>

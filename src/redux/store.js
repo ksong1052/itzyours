@@ -30,4 +30,13 @@ sagaMiddleware.run(rootSaga);
 // 이것은 window.localStorage에 store에 있는 state정보를 저장하기 위해 사용 - session 유지를 위해
 export const persistor = persistStore(store);
 
-export default { store, persistor };
+// export default { store, persistor };
+
+const reduxStore = {
+  store,
+  persistor,
+};
+
+export default reduxStore;
+
+

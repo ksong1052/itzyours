@@ -1,13 +1,10 @@
 import React from 'react';
 import './collection.scss';
-// import {  useLocation, useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import CollectionItem from '../../components/collectionItem/CollectionItem';
 import { selectCollection } from '../../redux/shop/shop.selector';
 
 const Collection = ({ collection }) => {  
-  // console.log("Collection - collection:",collection);
-
   const { title, items } = collection; 
   
   return (
