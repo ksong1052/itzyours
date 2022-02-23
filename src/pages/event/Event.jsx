@@ -2,8 +2,8 @@
 
 import React from 'react'
 import './event.scss';
-import Front from '../../images/front.png';
-import Back from '../../images/back_sale.png';
+// import Front from '../../images/front.png';
+// import Back from '../../images/back_sale.png';
 // import Back from '../../images/sale1.jpg';
 import Shopping1 from '../../images/shopping7.jpg';
 import Shopping2 from '../../images/shopping2.jpg';
@@ -35,7 +35,7 @@ const Event = () => {
       <section className="favorite-move2" style={{backgroundImage: `url(${Shopping2})`}}>
         <div className="inner">
 
-          <div className="medal">
+          {/* <div className="medal">
             <div className="front">
               <img src={Front} alt="" />
             </div>
@@ -43,7 +43,7 @@ const Event = () => {
               <img src={Back} alt="" className='fm2BackImg'/>
               <a href="#" className="btn">Location</a>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>
