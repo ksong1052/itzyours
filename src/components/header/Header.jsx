@@ -49,11 +49,11 @@ const Header = ({ history, currentUser, hidden, toggleCart, signOutStart }) => {
               <Button size="large">HOME</Button>
             </Link>
           </li>
-          <li className="listItem">
+          {/* <li className="listItem">
             <Link to="/" className='listItemLink'>            
               <Button size="large">PRODUCTS</Button>
             </Link>
-          </li>
+          </li> */}
           
           {
             currentUser ? 

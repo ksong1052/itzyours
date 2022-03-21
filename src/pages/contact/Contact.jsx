@@ -46,7 +46,7 @@ const Contact = () => {
                 <button>linkedIn</button> */}
                 <Button size="large" startIcon={<TwitterIcon />} className='socialIcon' />
                 <Button size="large" startIcon={<FacebookIcon />} className='socialIcon' />
-                <Button size="large" startIcon={<LinkedInIcon />} className='socialIcon' />
+                <Button size="large" startIcon={<LinkedInIcon />} className='socialIcon' href='https://www.linkedin.com/in/ksong1052/' />
               </div>
             </div>
           </div>          
