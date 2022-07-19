@@ -10,11 +10,13 @@ import { addItem } from '../../redux/cart/cart.action';
 // item : id, name, price, imageUrl
 const CollectionItem = ({ item, addItem, currentUser }) => {
   // const { id, name, price, imageUrl } = item;
+    
+  // console.log({item});
 
   return (
     <div className='collectionItem'>
 
-      {
+      {/* {
         currentUser ?
           <>
             <div 
@@ -42,7 +44,19 @@ const CollectionItem = ({ item, addItem, currentUser }) => {
               ${item.price}         
             </div>
           </>                  
-      }
+      } */}
+      
+      <div 
+        className="image"
+        style={{
+          backgroundImage: `url(${item.imageUrl})`
+        }}
+      />
+      <div className="collectionFooter">                
+        <span className="name">{item.name}</span>
+        ${item.price}                
+      </div>   
+      <button className='btn' onClick={() => addItem(item)}>ADD TO CART</button>          
          
     </div>
   )

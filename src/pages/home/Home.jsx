@@ -13,7 +13,9 @@ const Home = () => {
       {/* <div className="homeTitle">
         <h2>Products</h2>
       </div> */}
-      <Directory />  
+
+      {/* <Directory />   */}
+      
       {/* <div className="homeContact">
         <Contact />
       </div>           */}
